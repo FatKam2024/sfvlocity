@@ -1,0 +1,78 @@
+<section class="quiz">
+    <h2>Product Modeling Quiz</h2>
+    <div id="quiz">
+        <h3>Question <span id="question-number">1</span></h3>
+        <p id="question"></p>
+        <div id="choices"></div>
+        <button id="submit">Submit Answer</button>
+        <p id="result"></p>
+    </div>
+    <button id="next" style="display:none;">Next Question</button>
+    <p id="score" style="display:none;"></p>
+</section>
+
+<script>
+const quizData = [
+    {
+        question: "What is the primary purpose of product modeling in EPC?",
+        choices: ["To create physical product prototypes", "To define the structure and components of a product", "To set product prices", "To manage inventory levels"],
+        correct: 1
+    },
+    {
+        question: "Which of the following is NOT a key component of product modeling?",
+        choices: ["Attributes", "Relationships", "Versioning", "Shipping"],
+        correct: 3
+    },
+    {
+        question: "What does the 'Versioning' feature in product modeling allow you to do?",
+        choices: ["Create different sizes of products", "Track changes to product models over time", "Set different prices for products", "Manage product inventory"],
+        correct: 1
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion() {
+    const question = quizData[currentQuestion];
+    document.getElementById('question-number').textContent = currentQuestion + 1;
+    document.getElementById('question').textContent = question.question;
+    const choices = document.getElementById('choices');
+    choices.innerHTML = '';
+    for (let i = 0; i < question.choices.length; i++) {
+        choices.innerHTML += `<input type="radio" name="choice" value="${i}"> ${question.choices[i]}<br>`;
+    }
+    document.getElementById('result').textContent = '';
+    document.getElementById('submit').style.display = 'block';
+    document.getElementById('next').style.display = 'none';
+}
+
+document.getElementById('submit').addEventListener('click', function() {
+    const selected = document.querySelector('input[name="choice"]:checked');
+    if (selected) {
+        const answer = parseInt(selected.value);
+        if (answer === quizData[currentQuestion].correct) {
+            document.getElementById('result').textContent = 'Correct!';
+            score++;
+        } else {
+            document.getElementById('result').textContent = 'Incorrect. The correct answer was: ' + quizData[currentQuestion].choices[quizData[currentQuestion].correct];
+        }
+        document.getElementById('submit').style.display = 'none';
+        document.getElementById('next').style.display = 'block';
+    }
+});
+
+document.getElementById('next').addEventListener('click', function() {
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+        loadQuestion();
+    } else {
+        document.getElementById('quiz').style.display = 'none';
+        document.getElementById('next').style.display = 'none';
+        document.getElementById('score').textContent = `Quiz completed! Your score: ${score}/${quizData.length}`;
+        document.getElementById('score').style.display = 'block';
+    }
+});
+
+loadQuestion();
+</script>

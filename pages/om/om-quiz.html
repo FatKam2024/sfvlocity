@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management Quiz - CK Vlocity Training</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../epc/index.html">EPC</a></li>
+                <li><a href="../cpq/index.html">CPQ</a></li>
+                <li><a href="../om/index.html">OM</a></li>
+                <li><a href="../resources/index.html">Resources</a></li>
+                <li><a href="../community/index.html">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="course-content">
+            <h1>Order Management Quiz</h1>
+            <p>Test your knowledge of Salesforce Vlocity Order Management concepts with this quiz.</p>
+
+            <div id="quiz">
+                <h3>Question <span id="question-number">1</span></h3>
+                <p id="question"></p>
+                <div id="choices"></div>
+                <button id="submit">Submit Answer</button>
+                <p id="result"></p>
+            </div>
+            <button id="next" style="display:none;">Next Question</button>
+            <p id="score" style="display:none;"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 CK Vlocity Training. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+    const quizData = [
+        {
+            question: "What is the primary purpose of Order Management in Salesforce Vlocity?",
+            choices: [
+                "To manage customer relationships", 
+                "To streamline the order lifecycle from capture to fulfillment", 
+                "To create marketing campaigns", 
+                "To manage employee schedules"
+            ],
+            correct: 1
+        },
+        {
+            question: "Which of the following is NOT a key component of the Order Management process?",
+            choices: [
+                "Order Capture", 
+                "Order Processing", 
+                "Order Fulfillment", 
+                "Order Marketing"
+            ],
+            correct: 3
+        },
+        {
+            question: "What does 'Order Capture' refer to in Vlocity OM?",
+            choices: [
+                "Taking photos of physical orders", 
+                "Collecting orders from various channels including online, in-store, and customer service", 
+                "Capturing escaped orders from competitors", 
+                "Recording order details on paper"
+            ],
+            correct: 1
+        },
+        {
+            question: "Which automation tool in Salesforce can be used to create multi-step processes for order management?",
+            choices: [
+                "Workflow Rules", 
+                "Apex Triggers", 
+                "Process Builder", 
+                "Lightning Web Components"
+            ],
+            correct: 2
+        },
+        {
+            question: "What is the benefit of integrating OM with other systems like ERP and CRM?",
+            choices: [
+                "It makes the system more complex", 
+                "It reduces the need for customer service", 
+                "It maintains data consistency and streamlines operations", 
+                "It slows down order processing for better accuracy"
+            ],
+            correct: 2
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const question = quizData[currentQuestion];
+        document.getElementById('question-number').textContent = currentQuestion + 1;
+        document.getElementById('question').textContent = question.question;
+        const choices = document.getElementById('choices');
+        choices.innerHTML = '';
+        for (let i = 0; i < question.choices.length; i++) {
+            choices.innerHTML += `<input type="radio" name="choice" value="${i}"> ${question.choices[i]}<br>`;
+        }
+        document.getElementById('result').textContent = '';
+        document.getElementById('submit').style.display = 'block';
+        document.getElementById('next').style.display = 'none';
+    }
+
+    document.getElementById('submit').addEventListener('click', function() {
+        const selected = document.querySelector('input[name="choice"]:checked');
+        if (selected) {
+            const answer = parseInt(selected.value);
+            if (answer === quizData[currentQuestion].correct) {
+                document.getElementById('result').textContent = 'Correct!';
+                score++;
+            } else {
+                document.getElementById('result').textContent = 'Incorrect. The correct answer was: ' + quizData[currentQuestion].choices[quizData[currentQuestion].correct];
+            }
+            document.getElementById('submit').style.display = 'none';
+            document.getElementById('next').style.display = 'block';
+        }
+    });
+
+    document.getElementById('next').addEventListener('click', function() {
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+            loadQuestion();
+        } else {
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('next').style.display = 'none';
+            document.getElementById('score').textContent = `Quiz completed! Your score: ${score}/${quizData.length}`;
+            document.getElementById('score').style.display = 'block';
+        }
+    });
+
+    loadQuestion();
+    </script>
+</body>
+</html>

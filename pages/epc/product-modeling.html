@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Modeling - EPC - CK Vlocity Training</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../epc/index.html">EPC</a></li>
+                <li><a href="../cpq/index.html">CPQ</a></li>
+                <li><a href="../om/index.html">OM</a></li>
+                <li><a href="../resources/index.html">Resources</a></li>
+                <li><a href="../community/index.html">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="course-content">
+            <h1>Product Modeling</h1>
+
+            <p>In this section, we explore how to model products in Salesforce Vlocity's EPC, covering the key concepts, attributes, and relationships. Effective product modeling is crucial for creating a flexible and scalable product catalog that can support complex offerings and bundles.</p>
+
+            <h2>Understanding Product Models</h2>
+
+            <p>Product models define the structure and components of a product, allowing for customization and scalability. Each model can include multiple attributes, such as size, color, and material, and can be linked to other models through relationships.</p>
+
+            <h3>Key Components of Product Modeling</h3>
+            <ul>
+                <li><strong>Attributes:</strong> Define the characteristics of the product. These can be technical specifications, pricing information, or any other relevant details.</li>
+                <li><strong>Relationships:</strong> Establish connections between different product components. This includes parent-child relationships, dependencies, and compatibilities.</li>
+                <li><strong>Versioning:</strong> Manage different versions of a product model to track changes over time and maintain historical data.</li>
+                <li><strong>Rules and Constraints:</strong> Define business logic that governs how products can be configured or sold.</li>
+                <li><strong>Lifecycle Management:</strong> Control the availability and visibility of products based on their lifecycle stage.</li>
+            </ul>
+
+            <h2>Lab: Creating a Product Model</h2>
+
+            <p>Follow these steps to create a basic product model in Salesforce Vlocity EPC:</p>
+
+            <ol>
+                <li>Navigate to the EPC module in Salesforce.</li>
+                <li>Click on "New" to create a new product model.</li>
+                <li>Define the basic information:
+                    <ul>
+                        <li>Name: Enter a descriptive name for your product</li>
+                        <li>Code: Assign a unique identifier</li>
+                        <li>Description: Provide a detailed description of the product</li>
+                    </ul>
+                </li>
+                <li>Add attributes to your product model:
+                    <ul>
+                        <li>Click on "New Attribute"</li>
+                        <li>Define attribute name, data type, and any default values</li>
+                        <li>Specify if the attribute is required or optional</li>
+                    </ul>
+                </li>
+                <li>Create relationships with other product models:
+                    <ul>
+                        <li>Navigate to the "Relationships" tab</li>
+                        <li>Click "New Relationship" and select the related product model</li>
+                        <li>Define the type of relationship (e.g., parent-child, cross-sell)</li>
+                    </ul>
+                </li>
+                <li>Set up rules and constraints:
+                    <ul>
+                        <li>Go to the "Rules" section</li>
+                        <li>Create validation rules or compatibility rules as needed</li>
+                    </ul>
+                </li>
+                <li>Test the product model:
+                    <ul>
+                        <li>Use the "Preview" function to simulate how the product will appear in CPQ</li>
+                        <li>Verify that all attributes, relationships, and rules work as expected</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h2>Advanced Topics</h2>
+
+            <p>Explore advanced product modeling techniques to create more sophisticated and dynamic product offerings:</p>
+
+            <ul>
+                <li><strong>Dynamic Models:</strong> Create product models that adjust based on customer input or market conditions. For example, a telecommunications package that changes its offerings based on the customer's location or usage patterns.</li>
+                <li><strong>Nested Configurations:</strong> Model complex products with multiple levels of configuration, such as a customizable computer system with various component options.</li>
+                <li><strong>Product Bundles:</strong> Learn to create and manage product bundles that combine multiple individual products into a single offering, including pricing and discount strategies for bundles.</li>
+                <li><strong>Attribute-based Configuration:</strong> Implement advanced attribute-based configuration to allow for highly customizable products while maintaining data integrity and system performance.</li>
+                <li><strong>Integration with External Systems:</strong> Explore techniques for integrating product models with external systems, such as inventory management or supply chain systems, to ensure real-time accuracy of product information.</li>
+            </ul>
+
+            <h2>Best Practices</h2>
+
+            <ul>
+                <li>Start with a clear understanding of your product hierarchy and relationships before modeling.</li>
+                <li>Use consistent naming conventions for attributes and relationships across all product models.</li>
+                <li>Regularly review and optimize your product models to ensure they align with current business needs.</li>
+                <li>Leverage versioning to manage product changes over time without disrupting existing orders or quotes.</li>
+                <li>Document your product modeling decisions and rationale to facilitate knowledge sharing and future maintenance.</li>
+            </ul>
+
+            <p>By mastering these product modeling techniques, you'll be able to create a flexible and powerful product catalog that can adapt to changing business needs and support complex sales scenarios.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 CK Vlocity Training. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
