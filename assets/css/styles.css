@@ -67,7 +67,13 @@ header nav ul li a:hover {
     background-color: #319795;
 }
 
-.overview {
+.course-content {
+    padding: 40px 20px;
+    background-color: #edf2f7;
+    text-align: left;
+}
+
+.overview, {
     padding: 40px 20px;
     background-color: #edf2f7;
     text-align: center;
